@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#dce7d2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#16231d" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="description"
+      content="A quick Environmental Law issue-spotting game for paralegal students."
+    />
+    <title>What's the Issue?</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <div class="desk-marks" aria-hidden="true">
+      <span class="map-line"></span>
+      <span class="paperclip"></span>
+      <span class="drop"></span>
+    </div>
+
+    <main class="game-shell">
+      <header class="topbar">
+        <button id="home-button" class="brand-button" type="button" aria-label="Return home">
+          <span class="file-tab" aria-hidden="true">W / I</span>
+          <span>WHAT'S THE ISSUE?</span>
+        </button>
+
+        <div id="game-meta" class="game-meta" aria-label="Game progress" hidden>
+          <span id="progress">File 1 of 10</span>
+          <span id="score">0 correct</span>
+        </div>
+      </header>
+
+      <section id="home-screen" class="home-screen" aria-labelledby="home-title">
+        <div class="home-copy">
+          <p class="course-label">ENVIRONMENTAL LAW MINI-GAME</p>
+          <h1 id="home-title">WHAT'S THE <span>ISSUE?</span></h1>
+          <p class="instruction">Read the file. Spot the main environmental issue.</p>
+          <button id="start-button" class="primary-button" type="button">START</button>
+        </div>
+
+        <div class="folder-stack" aria-hidden="true">
+          <div class="folder-back"></div>
+          <div class="folder-front">
+            <span class="folder-label">CASE FILES</span>
+            <span class="folder-rule"></span>
+            <span class="folder-note">AIR<br />WATER<br />WASTE<br />LAND / SITE</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="play-screen" class="play-screen" aria-label="Current case file" hidden>
+        <article id="scenario-card" class="scenario-card" tabindex="-1">
+          <div class="card-heading">
+            <span id="file-number" class="file-number">FILE 01</span>
+            <span id="question-type" class="question-type">WHAT'S THE MAIN ISSUE?</span>
+          </div>
+          <p id="scenario-text" class="scenario-text"></p>
+          <span class="page-corner" aria-hidden="true"></span>
+        </article>
+
+        <div id="answer-buttons" class="answer-buttons" aria-label="Choose an answer"></div>
+
+        <div id="feedback" class="feedback" aria-live="polite" aria-atomic="true" hidden>
+          <div class="feedback-copy">
+            <strong id="feedback-title"></strong>
+            <p id="feedback-text"></p>
+          </div>
+          <button id="next-button" class="next-button" type="button">NEXT FILE</button>
+        </div>
+
+        <button id="stop-button" class="text-button" type="button">STOP FOR NOW</button>
+      </section>
+
+      <section id="end-screen" class="end-screen" aria-labelledby="end-title" hidden>
+        <div class="completion-sheet">
+          <p class="course-label">OPTIONAL REVIEW</p>
+          <h2 id="end-title" tabindex="-1">FILE REVIEW COMPLETE</h2>
+          <dl class="results">
+            <div>
+              <dt>Answered</dt>
+              <dd id="answered-result">0</dd>
+            </div>
+            <div>
+              <dt>Correct</dt>
+              <dd id="correct-result">0</dd>
+            </div>
+            <div>
+              <dt>Score</dt>
+              <dd id="percent-result">0%</dd>
+            </div>
+          </dl>
+          <p class="end-note">Issue spotting starts with the facts. Keep the file moving when you want more practice.</p>
+          <div class="end-actions">
+            <button id="play-again-button" class="primary-button" type="button">PLAY AGAIN</button>
+            <button id="more-files-button" class="secondary-button" type="button">REVIEW MORE FILES</button>
+          </div>
+        </div>
+      </section>
+
+      <noscript>This game needs JavaScript to shuffle files and check answers.</noscript>
+    </main>
+  </body>
+</html>
